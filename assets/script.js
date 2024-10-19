@@ -15,7 +15,7 @@ const config = {
   ],
 };
 
-// api.js
+// fetch the data from Alpha vantage API
 function fetchStockData(symbol) {
   return fetch(
     `${config.API_BASE_URL}?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${config.API_KEY}`
@@ -44,7 +44,7 @@ function fetchHistoricalData(symbol) {
     });
 }
 
-// chart.js
+// chartjs Intergration
 let priceChart = null;
 
 function createChart(data) {
@@ -85,7 +85,7 @@ function createChart(data) {
   });
 }
 
-// ui.js
+// update ON UI
 function updateStockInfo(data) {
   const stockInfo = document.getElementById("stockInfo");
   stockInfo.innerHTML = `
@@ -134,7 +134,7 @@ function showError(message) {
   setTimeout(() => errorDiv.remove(), 3000);
 }
 
-// app.js
+// Main Logic
 const trackedStocks = new Set();
 
 function initializeTrendingStocks() {
